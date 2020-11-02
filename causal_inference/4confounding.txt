@@ -1,0 +1,162 @@
+MIGUEL HERNAN: In this segment, we are going
+to continue to explore the relation between causal structures
+and association using graphs.
+Now we're going to consider a graph in which the variables A and Y share
+a cost, L. For example, A can be yellow fingers, having yellow fingers:
+yes, no.
+Y can be lung cancer: yes, no.
+And L, cigarette smoking: yes, no.
+There is an arrow from L to Y because smoking has a causal effect on cancer.
+There is an arrow from L to A because cigarette smoking
+has a causal effect on yellow fingers.
+People who are heavy smokers for many years tend to develop yellow fingers.
+But there is no arrow from A to Y because having yellow fingers
+doesn't have an effect on cancer.
+So we drew this causal graph using our expert knowledge.
+We didn't use any data.
+But what if we had data?
+Well, if we had data, then we could compute
+the association between A and Y. So if A doesn't have a causal effect on Y,
+as represented by this graph with no arrow from A to Y,
+do we expect to find an association between A and Y in our data?
+To answer this question, again suppose that we have a database
+with millions of people.
+And for each person, we know whether they have yellow fingers (A),
+whether they develop lung cancer (Y).
+What does an association between yellow fingers and cancer mean?
+Remember our definition of association, yellow fingers and lung cancer
+are associated if the proportion of individuals with lung cancer
+is different among those with and without yellow fingers.
+But that is precisely what we expect to happen here.
+People with yellow fingers are more likely to have lung cancer than people
+without yellow fingers.
+And that's not because yellow fingers cause lung cancer,
+it is because having yellow fingers is a marker
+of smoking, which causes lung cancer.
+So we do expect A and Y to be associated even
+though A has no causal effect on Y.
+Another way of saying this is that there is an association between A and Y
+because having information about A allows
+us to predict Y better on average.
+If you learn that someone has yellow fingers,
+it is likely that person has an above average risk of lung cancer.
+And this association is a bias.
+When we're using data to estimate the causal effect of A on Y,
+any association between A and Y that is not due to the effect of A and Y
+is considered a systematic bias.
+In particular, when there is a component of the association between A and Y
+that is due to a common cause of A and Y, like L in our causal graph,
+we say that that is confounding.
+In our example, in naive investigator might
+conclude that yellow fingers cause cancer because yellow fingers
+and lung cancer are associated.
+And that would be an example of a biased effect estimate.
+And one of the most important goals of causal inference
+is to eliminate bias due to confounding.
+We'll have a full lesson to talk about this.
+What we have seen here is another example
+of how DAGs are both causal and statistical models.
+When we used our expert knowledge to draw a causal graph
+with no arrow from A to Y because we know that yellow fingers don't cause
+cancer, and with a common cause of A and Y
+because we know that cigarette smoking causes both yellow fingers and lung
+cancer, when we were doing that, we were also
+drawing a statistical model that says that A and Y are not
+expected to be independent, that they are expected to be associated.
+More generally, graph theory gives us a rule,
+which is that we cannot exclude an association between A and Y when A
+and Y have a common cause, L, even if there is no arrow from A to Y.
+Informally, we can see that there is a flow of association between A and Y
+that is expected through L. Now let's say this again,
+because this simple graphic rule is related to confounding,
+and therefore very important for causal inference.
+The presence of a common cause of A and Y
+makes us expect an association between A and Y, even if A doesn't cause Y.
+Let's now move to questions about conditional independence.
+So far, we have considered the association between A and Y
+without conditioning on a third variable.
+That is, we have considered the unconditional, the marginal association
+between A and Y. We will now consider the conditional association between A
+and Y within levels of L. For example, is
+there an association between yellow fingers and lung cancer among never
+smokers?
+To answer these questions, we need data on A, Y, and L.
+Suppose again we have a database with millions of people, and for each person
+we know whether they were cigarette smokers,
+whether they had yellow fingers, and whether they developed lung cancer.
+With this data, we can answer the question of whether A and Y are
+associated conditional on L. For example,
+we can restrict the analysis to the subset
+of individuals who are never smokers.
+Remember, we use a square box around a variable
+to indicate that we're conditioning on it.
+So now we can check in the subset of the population who are never
+smokers whether there is an isolation between A and Y.
+We just check whether the proportion of individuals with lung cancer
+is different among those with and without yellow fingers.
+If the proportions are different, we will
+say that there is an association between A and Y conditional on L
+where L is equal to never smoking.
+Another way to say this is that we will check
+whether A contains information not already included in L
+that allows us to predict Y better.
+So if the correct DAG is one with arrows from L to A and L to Y,
+but no arrow from A to Y, do we expect to find
+an association between A, yellow fingers, and Y, lung cancer, in one
+particular level of L, never smokers?
+Well, according to this graph, the association
+between yellow fingers on cancer was a result
+of yellow fingers being a marker of smoking.
+Therefore if someone is a never smoker, learning
+that she has yellow fingers does not provide any additional information
+regarding the risk of Y.
+Think of it in this way.
+If we know that a never smoker has a 1% chance of developing cancer,
+then learning that she has yellow fingers does not change that number.
+She still has a 1% chance of developing cancer.
+OK, one more time.
+Learning that someone has yellow fingers when we already know she's not a smoker
+does not provide any additional information
+regarding her risk of lung cancer.
+It just makes us wonder why she has yellow fingers.
+She may be a painter or something.
+But that is not associated with the risk of lung cancer.
+Now, there's nothing special about the subset of never smokers.
+The same rationale applies to other subsets of the population defined
+by different levels of smoking.
+We said that L was a binary variable that can take values 1 or 0.
+But in practice, we'll have variables that can take many different values.
+What happens if we condition on each of those values?
+Well we still be able to say that there is no association between A and Y?
+Well, let's say that L is cigarette smoking,
+but can take values from, say, 0, no smoking,
+to 40, being a smoker of 40 cigarettes per day.
+What if we condition on the value of L equals to 40?
+We will say that there is no association between A and Y,
+between yellow fingers and lung cancer among people
+who smoke 40 cigarettes per day.
+Let's think about this.
+If we know that a smoker of 40 cigarettes per day
+has a 10% chance of developing cancer, then
+learning that she has yellow fingers does not change that number.
+She still has a 10% chance of cancer.
+Therefore, there is no conditional association between A and Y
+within levels of L regardless of which level of L we condition on.
+We can condition on L equal to never smoking or L to 40 cigarettes,
+and there is no association in either case.
+This is another example of why DAGs are both causal and statistical models.
+We used our expert knowledge to draw a causal graph with arrows
+from L to A, and from L to Y, and with no arrow from A
+to Y. And that implied a statistical model that says that A and Y are
+independent conditional on L, that they are not associated with levels of L.
+More generally, graph theory gives us a rule that
+says that the flow of association between A and Y
+is interrupted when we condition on their common cause, L. The box around L
+blocks the association between A and Y. So there is no arrow from A to Y,
+we say that there is no association between A and Y conditional on L.
+And this simple graphical rule is very important for causal inference
+because if conditioning on L blocks the flow on association between A and Y,
+then conditioning on L is a way to fight confounding.
+And we will have a full lesson of confounding,
+but first we need to learn a few more things about DAGs.
+Now we are ready to discuss another causal structure.

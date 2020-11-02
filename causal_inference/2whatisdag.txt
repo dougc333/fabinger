@@ -1,0 +1,99 @@
+MIGUEL HERNAN: At this point in the course,
+you may be wondering how causal graphs look like.
+This is the moment that you have been waiting for.
+Meet your first causal diagram.
+This is a causal diagram with three variables,
+or nodes: L, A, and Y. These variables are connected by arrows,
+which are also known as directed edges.
+This is the causal graph that we will draw
+if we knew that L has an effect on A and A has an effect on Y,
+and also L has a direct effect on Y that is not mediated through A.
+If we knew that some of these causal effects were not present,
+we would omit the corresponding arrow.
+And because the arrows indicate the direction of causality,
+we refer to this graph as a directed graph.
+So L causes A, but A doesn't cause L.
+This graph has another important property.
+It is acyclic.
+That is, there are no cycles, meaning that if you start at one variable
+and follow the direction of the arrows, you will never
+get back to the same variable.
+L causes A and A causes Y, but then Y doesn't cause L.
+If you think of time as going from left to right on the graph,
+then that the graph is acyclic just means that the past affects the future,
+but the future doesn't affect the past.
+And because these graphs are directed and they're acyclic,
+we refer to them as DAGs--
+directed acyclic graphs.
+Sometimes we will say causal graphs, sometimes we will say causal DAGs,
+we mean exactly the same thing.
+And we draw DAGs by using our expert knowledge
+about the problem under study.
+If our expert knowledge is insufficient for us to exclude any possible effect,
+then we will draw all the arrows, like we did in the previous graph,
+and we say that the DAG is complete.
+On the other hand, if our expert knowledge
+allows us to exclude some causal effects,
+then we will omit some of the arrows in the DAG.
+That's how we represent our knowledge, in the form of missing arrows.
+And DAGs are used for many things, not only for causal inference.
+Here, we are going to be dealing with causal DAGs.
+A DAG is a causal DAG if when two variables on the graph share a cause,
+that cause is also represented on the graph.
+This is known as the Causal Markov Condition.
+Let's see a couple of examples.
+Suppose that we are interested in the effect of Aspirin, A,
+on the risk of a stroke, Y. Now let's say
+that we have conducted an experiment in which 10,000 individuals were randomly
+assigned to receive an Aspirin and 10,000
+and individuals were randomly assigned to not receive an Aspirin.
+Now, for each person, we flip a coin-- heads, you get
+Aspirin, tails, you don't get Aspirin.
+So A represents assignment to Aspirin.
+The question is, do we need to add any more variables other than A and Y
+to the graph to make it a causal graph?
+For example, you may be wondering about all these variables
+that are causes of Y, all the causes of a stroke that we know,
+like high blood pressure or coronary heart disease, diet, genes,
+and many, many others.
+Shouldn't we add these variables to the graph?
+Well, let me ask you something-- do any of these variables
+affect assignment to Aspirin?
+No, of course not.
+This is a randomized trial.
+The only reason why some people got Aspirin is because we flipped a coin
+and there was heads, not because they had heart disease
+or because they had high blood pressure.
+Therefore, all those causes of Y cannot possibly be causes of A.
+They are not common causes of Y and A, and therefore,
+we don't need to include them in the graph.
+The simple graph that has A arrow Y is a causal DAG,
+even if it does not include all those other causes of Y.
+Now consider a different situation.
+Rather than having conducted a randomized trial,
+we did something very different.
+We selected a large number of individuals
+and classified them into two groups according to the information
+in their electronic medical records.
+In one group, we put everybody who started treatment
+with Aspirin, and in the other group, everybody who
+didn't start treatment with Aspirin.
+So now A in our graph represents Aspirin use.
+Again, the question is, do we need to add any variables other than A and Y
+to our graph to make it causal?
+Okay -- let's think about some of these causes of stroke, Y,
+that were discussed before.
+Take coronary heart disease.
+Should we have an arrow from coronary heart disease into A?
+Yes, because people who have coronary heart disease
+are more likely to start treatment with Aspirin in the real world.
+Therefore, coronary heart disease is a common cause of A and Y,
+and it should be included in the graph.
+So a causal graph for Aspirin and stroke that
+does not include coronary heart disease is not a causal DAG
+when we are not randomizing treatment.
+And therefore, that graph without coronary heart disease cannot be used
+to guide causal inference, as we will discuss in future segments.
+We have now seen our first causal graphs.
+In the next segment, we will start to explore
+the reasons why we like them so much.
