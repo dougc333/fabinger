@@ -1,0 +1,168 @@
+MIGUEL HERNAN: Why do we like causal graphs?
+After all, we have seen that causal graphs are simple pictures, that even
+a five year old can understand.
+How can they be so helpful to people conducting research?
+Well, causal DAGs are helpful because they are two things at the same time.
+On the one hand, they're causal models.
+They are qualitative causal models, but causal models.
+On the other hand, they are statistical models.
+That is, they're models that represent associations and independencies
+between variables.
+That means that we can draw a causal graph using our expert
+knowledge, our causal knowledge, and at the same time,
+we are building a statistical model without knowing it.
+And this dual nature is based on the fact
+that the causal effects imply associations.
+And lack of causal effects imply independencies.
+And this is very important, because when we are conducting research
+we find biases.
+And these biases are associations.
+Therefore, we can use causal graphs to conceptualize those biases
+and to identify them in our research.
+OK, this may have sounded pretty abstract.
+There is a mathematical theory underlying causal graphs,
+but we don't need to master that theory in order to use causal graphs.
+It's kind of like you don't need to know how a car works in order to ride it.
+Later in this lesson we'll talk more about theory,
+but for now we are going to see how causal graphs work with examples,
+with informal examples.
+Let us consider the simplest possible causal DAG with two variables, A arrow
+Y.
+A is a variable that represent cigarette smoking and can take two values.
+One, if the person is a smoker, zero if a person is not.
+Y is a variable that represents lung cancer and can also take two values.
+One if the person develops lung cancer, and zero if the person doesn't.
+So we say that A and Y are binary variables or dichotomous variables.
+We draw this causal graph because we believe
+that there is a causal effect of smoking, A, on cancer Y.
+And to do that, we use our expert knowledge.
+We didn't use any data.
+But what if we had data?
+Well, if we had data, then we could compute the association between A
+and Y. So if A has a causal effect on Y, as represented by our graph, A arrow Y,
+do we expect to find an association between A and Y in our data?
+To answer this question, suppose that we have a database
+with millions of people.
+And for each person we know whether they were cigarette smokers, A,
+and whether they develop lung cancer, Y.
+What does an association between smoking, A, and cancer, Y, mean?
+If we go back to our definition of association,
+we said that smoking and lung cancer are associated
+if the proportion of individuals with cancer
+is different among smokers and nonsmokers.
+But this is precisely what we expect to happen if smoking causes cancer.
+We expect A and Y to be associated when A has a causal effect on Y.
+And we expect A and Y to be independent when A does not have an effect.
+We can think about association in an equivalent way.
+We say that A and Y are associated when having information about A
+allows us to predict Y better on average.
+And that is precisely what happens in our example.
+If we learn that someone is a cigarette smoker,
+then we will predict she has a risk of lung cancer
+that is greater than the average risk of cancer in the population.
+And that's what I meant when I said that DAGs
+are both causal and statistical models.
+Because if we use our expert knowledge to draw a causal graph,
+with no arrow from A to Y, then we are also
+drawing a statistical model that says that A and Y are independent,
+that they are not associated.
+And more generally, graph theory gives us a rule.
+We can only exclude an association between A and Y
+if there is no arrow from A to Y. Informally,
+we can see the arrow between A and Y as a pipe.
+A pipe that carries association right on water.
+If the arrow is there, then a flow of association between A and Y
+is expected.
+Let's now consider another question.
+When we drew our graph, A arrow Y, we didn't
+include any variables between A and Y. But the effect
+of smoking A on lung cancer Y is obviously mediated by some variables.
+For example, by the damage to the DNA of the cells of the lung
+that smoking causes.
+So we could then have drawn a causal graph, A arrow B arrow
+Y, where B is cell damage.
+And B, we say is a mediator of the effect of A on Y.
+But we didn't do it.
+We didn't include B on our graph.
+And that's because causal graphs do not need to include mediators
+when the goal is to estimate the total effect of A
+on Y. If we needed information on mediators to estimate causal effects,
+then it will be impossible to estimate most causal effects.
+Not even using randomized experiments, because we typically
+don't have any information on mediators in randomized experiments.
+OK, but let's say that we decide to include the mediator B, cell damage,
+into our graph.
+This is the graph that we would draw if we believed
+that there is an effect of A on B, that there is an effect of B on Y,
+and that there is no direct effect of A on Y
+through pathways other than the A B Y pathway.
+Again, this level of detail in the specification of the graph
+is unnecessary when we are interested in the total effect of A on Y.
+But let's say that we have a graph with B. In this case,
+we can ask a new type of question.
+We can ask a question about conditional independence.
+We can ask the question, are A and Y associated conditional
+on B or within levels of B?
+Is there an association between A and Y, among individuals
+with a particular value of B?
+And to answer this question, we will need data on A, Y and of course,
+B. So suppose again that we have a database with millions of people
+and for each person we know whether they were cigarette smokers,
+whether they had cell damage, and whether they developed lung cancer.
+And let me make a clarification here.
+The arrows of causal graphs are not meant to be deterministic.
+That means that when we have an arrow from cigarette smoking A to cell damage
+B, that doesn't mean that for every single smoker
+we're going to see cell damage.
+Because some smokers may never develop cell damage;
+some nonsmokers may develop cell damage for other reasons.
+OK, so with this data on A, Y and B, we can answer the question
+on whether A and Y are associated conditional on B.
+For example, we can restrict our analysis
+to a subset of individuals with cell damage with B equals one.
+And to represent it graphically that we are conditioning
+on a particular value of B, one, we put a square box around B on the graph.
+And now we can check in the subset of the population with cell damage B
+equals one whether there is an association between A and Y.
+We just check whether the proportion of individuals with lung cancer
+is different among smokers and nonsmokers.
+If the proportions are different, we will
+say that there is an association between A and Y conditional on B equals one.
+Or another way to say this, we will check
+whether A contains information not already included in B
+that allows us to predict Y better.
+If the correct DAG is really A arrow B arrow Y,
+do we expect to find an association between A, cigarette smoking and Y,
+lung cancer, among people with B equals one with cell damage?
+Well, according to this graph, the effect of smoking
+is entirely mediated through cell damage.
+Therefore, if someone has cell damage, then learning
+that she's a smoker does not provide any additional information with respect
+to the risk of Y. You can think of it in this way.
+If we know that someone with cell damage has a 10% chance of developing cancer,
+and then we learn that she is a cigarette smoker,
+that doesn't change the number.
+She still has a 10% chance of developing cancer.
+Because under our graph, smoking can only
+affect cancer risk through cell damage.
+And similarly, if we know that someone without cell damage
+has a 1% chance of developing cancer, then
+learning that she is a cigarette smoker does not change that number.
+She still has a 1% chance of cancer.
+We say that there's no conditional association between A and Y
+with the levels of B. And that's true for all levels of B,
+whether we are conditioning on B equals one, cell damage, or B equals
+zero, no cell damage.
+And this is another example of why DAGs are both causal and statistical models.
+We use our expert knowledge to draw a causal graph
+with no direct arrows from A to Y. And that implies a statistical model
+that says A and Y are independent conditional on B.
+That they are not associated with the levels of B.
+More generally, there's a rule in graph theory.
+The flow of association between A and Y is
+interrupted when we condition on the mediator, B. The box around B
+blocks the association between A and Y.
+So if there is no direct arrow from A to Y,
+we say that there is no association between A and Y
+conditioned on B, even though A has a causal effect on Y.
+OK, it's time to discuss another causal structure.

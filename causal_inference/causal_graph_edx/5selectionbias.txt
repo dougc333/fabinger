@@ -1,0 +1,194 @@
+MIGUEL HERNAN: In the previous segment, we studied the causal structure
+with common causes.
+Now we're going to study the causal structure with common effects.
+So let's consider a graph in which the variables A and Y have a common effect
+L. For example, we can have three binary variables, where A is a genetic factor.
+You either have it or not, 1-0.
+Y is an environmental factor, you either have it or not, 1-0.
+And L is cancer.
+There is an arrow from A to L, because the genetic factor increases
+the risk of cancer, and there is an arrow from Y to L
+because the environmental factor, say exposure
+to high levels of air pollution, also increases the risk of cancer.
+But there is no arrow from A to Y, because the genetic factor
+doesn't have any effect on your exposure to air pollution.
+We draw this DAG using our expert knowledge.
+We didn't use any data.
+What if we had data?
+Well, when we have data, we can compute the association between A and Y.
+If A doesn't have a causal effect on Y, as we
+see in this graph, where there is no arrow from A to Y,
+do we expect to find an association between A and Y in the data?
+And, to answer this question, we go to our database with millions of people.
+For each person, we know whether they had the genetic factor
+A, whether they had the environmental factor
+Y. Now we can compute the association.
+But what does an association between the genetic and the environmental factor,
+between A and Y mean?
+We go back to our definition of association.
+We know that the genetic and environmental factors
+are associated if the proportion of individuals with environmental factors
+is different among those with and without the genetic factor.
+Another way to say this, is that the genetic factor
+A contains information that allows us to predict the environmental factor
+Y better.
+If that's true, then there is an association.
+So, under our graph with no arrows from A to Y but arrows from A and Y to L,
+do we expect to find an association between the genetic factor
+A and environmental factor Y?
+Well, according to this graph, an individual's exposure
+to high levels of air pollution was not affected by her genes.
+The environmental factor is distributed in the population independently
+of genes.
+Therefore, learning that an individual has the genetic factor
+does not provide any additional information
+regarding her environmental exposure.
+Think of it in this way.
+If we know that 5% of the population are exposed
+to high levels of air pollution, then 5% of the population
+with the genetic factor are exposed to high air pollution
+and also 5% of the population without the genetic factor.
+Learning that the person has the genetic factor
+does not to provide any additional information regarding her chance
+of having the environmental factor.
+Therefore, there is no association between A
+and Y. A and Y are independent.
+Graphically, this means that the presence of a common effect of A and Y
+does not to create an association between A and Y.
+That both the genetic and the environmental factor
+may cause cancer in the future, does not imply
+that the genetic and environmental factor are associated today.
+And this is another example of how DAGs are both causal and statistical models.
+When we use our expert knowledge to draw a causal graph with no arrow from A
+to Y, and with a common effect of A and Y,
+we were also drawing a statistical model that says that A and Y are independent,
+that they are not associated.
+More generally, a rule of our theory is that common effects do not
+create an association.
+And that is in contrast with what we saw in the previous segment
+when we saw that common causes create association.
+By the way, the common effect L is referred to as a collider.
+A collider because two arrowheads collide into it.
+Informally, colliders block the flow of association along the path
+that they lie on.
+So far, we have considered the marginal or unconditional association
+between A and Y. Now we are going to continue the conditional association
+between A and Y within levels of L.
+For example, we are going to ask the question,
+is there an association between the genetic factor
+and environmental factor among people with lung cancer,
+among people with L equals 1.
+And to answer this question, we need data on A and Y,
+and L. Suppose, again, we have our database with millions of people,
+and for each person we know whether they had the genetic factor,
+whether they had the environmental factor,
+and whether they developed lung cancer.
+With this data, we can answer the question
+of whether A and Y are associated conditional on L equals 1.
+To do so, we restrict the analysis to a subset
+of individuals who developed cancer.
+Again, we use a square box around a variable
+to indicate that we are conditioning on that variable.
+Now we can say, in the subset of the population with cancer,
+whether there is an association between A and Y,
+between the genetic factor and the environmental factor.
+We just check whether the proportion of individuals
+exposed to high levels of air pollution is different among those
+with and without the genetic factor.
+If the proportions are different, we will
+say that there is an association between A and Y conditional on L-1.
+Or, another way to say this, we will check
+whether A contains information, not already included in L,
+that allows us to predict Y better.
+If the correct DAG is the one with the arrows from A and Y to L,
+but no arrow from A to Y, do we expect to find an association between A,
+the genetic factor and Y, the environmental factor among those with L
+equals 1, cancer.
+Let's think about this.
+Let's say we know that someone has cancer.
+Now we learn that the person does not have the genetic factor.
+But she has cancer, so something must have caused the cancer.
+If it wasn't the genetic factor, then all other causes of cancer
+become more likely to exist.
+One of those causes is air pollution or any other environmental factors.
+Therefore, if someone has cancer L, but not the genetic factor, A,
+then that person is more likely to be exposed
+to high levels of air pollution.
+Not because the genetic factor protects against the environmental factor,
+but because cancer is present, and something must have caused it.
+When we restrict the analysis to people with cancer,
+the proportion of people with the environmental factor
+is higher among people without the genetic factor
+than among people with the genetic factor.
+We do expect A and Y to be associated, even
+though A has no causal effect on Y.
+Think of it in this way.
+If we know that 5% of people with the genetic factor
+are exposed to high levels of air pollution,
+then when we select only those with cancer, we should expect more than 5%,
+perhaps 10%, of the population without the genetic factor
+to be exposed to high air pollution.
+If you learn that someone with cancer does not have the genetic factor,
+it is more likely that she will have the environmental factor.
+There is a conditional association between A and Y
+within levels of L. In this case, it is an inverse association.
+Not having the genetic factor A is associated
+with having the environmental factor Y among the selected group with cancer.
+And this association is a bias.
+When we are using data to estimate the causal effect of A and Y,
+then any association between A and Y that
+is not due to the effect of A or Y, is considered a systematic bias.
+In particular, in this case, when there is
+a component of the association of these, due to selecting
+a subset of the population, we say that there is selection bias.
+In this example, a naive investigator might
+conclude that having certain genes protects against air pollution
+because genetic factors and environmental factors
+are inversely associated among people with cancer.
+And that could be an example of a biased effect estimate.
+An important goal of causal inference is to eliminate selection bias.
+This is another example of how DAGs are both causal and statistical models.
+When we used our expert knowledge to draw a causal graph
+with no arrow from A to Y, and with a common effect of A and Y,
+we were also drawing a statistical model that
+says that A and Y are not expected to be independent,
+that they are expected to be associated with all or some levels of L.
+More generally, the graph theory rule says that we cannot exclude
+an association between A and Y, when A and Y have a common effect L,
+and we condition on that common effect, even if there is no arrow from A to Y.
+Informally, we can visualize a flow of association between A and Y through
+the condition on L.
+Let's say this again, because this simple graphical rule
+is related to selection bias, and therefore it
+is very important for a causal inference.
+In fact, we are going to have a full lesson on selection bias later.
+Conditioning on a common effect of A and Y
+makes us expect an association between A and Y even if A doesn't cause Y.
+Before, we said that L was a collider.
+You can see that colliders behave exactly the opposite
+as all other variables on graphs.
+When they are not conditioned on, they block the flow of association
+through the path that they are on.
+But when they are conditioned on, they do not block the flow of association.
+This graphical rule, about conditioning on common effects,
+applies to all common effects, whether they are colliders
+or they are not colliders.
+For example, consider a DAG in which we add a variable S, with an arrow from L
+to S. Now S is a common effect of A and Y, but it's not a collider.
+S is the effect of the collider.
+For example, let's say that S is lung surgery, which
+is often a treatment for lung cancer.
+Do we expect to find a conditional association between A and Y
+within levels of S?
+To answer this question, we can use the same line of argumentation
+that we use when we consider a conditional association within levels
+of L.
+Suppose that someone had lung surgery, S equals 1.
+Well something must have caused it.
+If it is not the genetic factor A, then all other causes of lung surgery,
+including the environmental factor Y, become more likely.
+Therefore, we expect to find a conditional association between A and Y
+within levels of their common effect S. Selection bias will
+arise whether we condition on a collider or on something affected by a collider.
+And we are now ready to summarize all the graphical rules
+that we have learned.
