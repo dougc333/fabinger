@@ -1,0 +1,20 @@
+Matching
+Observational Studies
+Overview of Matching
+Practice Quiz
+Greedy (nearest neighbor) matching
+Optimal matching
+Assessing balance
+Analyzing data after matching
+Practice Quiz
+Sensitivty Analysis
+Data example in R
+Quiz 6 questions
+Propensity Scores
+Propensity Scores
+Propensity score matching
+Propensity score matching in R
+Quiz 5 questions
+Data Analysis Project 8 questions
+
+
