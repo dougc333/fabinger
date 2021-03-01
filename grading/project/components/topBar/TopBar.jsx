@@ -183,9 +183,7 @@ class TopBar extends React.Component {
     return (
       <AppBar className="cs142-topbar-appBar" position="absolute" >
         <Toolbar>
-          <Typography variant="h6" color="inherit" component='span' style={{ flex: 1 }}>
-          Name:DC
-          </Typography> 
+          asdf
           {this.displayLogin()}
           {this.displayAddPhoto()}
          

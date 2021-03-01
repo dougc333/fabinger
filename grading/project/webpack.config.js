@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    photoShare: './photoShare.jsx',
+    classShare: './classShare.jsx',
   },
   module: {
     rules: [
