@@ -1,0 +1,12 @@
+1. What assumption is also referred to as the no unmeasuerd cofounders assumption? 
+ SUTVA
+ consistency
+ignorability
+positivity
+
+2. Which causal assumption requires that there is no interference between nits
+positivity
+SUTVA
+ignorability
+consistency
+
