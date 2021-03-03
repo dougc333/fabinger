@@ -1,6 +1,24 @@
 import React from 'react'
 import {Typography,List,ListItem,Link} from '@material-ui/core'
 
+var week5_outline=[
+  'Instrumantal Vaiables Methods',
+  'Intro to Instrumental Variables',
+  'Randomized trials with noncompliance',
+  'Compliance Classes',
+  'Assumptions',
+  'Quiz',
+  'Causal Effect Identification and estimation',
+  'IVs in observational studies',
+  '2 stage least squares',
+  'Weak instruments',
+  'Quiz 2 questions',
+  'IV analysis in R',
+  'Instrumental Variables/Causal effects in randomized trials with non-compliance'
+]
+
+
+
 class Week5 extends React.Component{
   constructor(){
     super();

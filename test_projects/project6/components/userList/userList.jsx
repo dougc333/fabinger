@@ -24,7 +24,8 @@ class UserList extends React.Component {
       prevProps:props,
       engage:'',
       addBubbles:'',
-      commentPhoto:''
+      commentPhoto:'',
+      admin:'',
     }
   }
 
@@ -32,7 +33,8 @@ class UserList extends React.Component {
     //console.log('UserList componentDidMount props:',this.state.prevProps)
     let fm = this.state.prevProps.userIdArr
     let en = this.props.isEngage
-    this.setState({userId:fm,engage:en})
+    let ad = this.props.isAdmin
+    this.setState({userId:fm,engage:en,admin:ad})
     let arr=[]
     for (let i=0;i<this.state.prevProps.userIdArr.length;i++){
       console.log("componentDidMount id:",this.state.prevProps.userIdArr[i]._id)
@@ -57,7 +59,11 @@ class UserList extends React.Component {
     //console.log("componentDidUpdate props:",this.props)
     if(this.props.isEngage!==this.state.engage){
        this.setState({engage:this.props.isEngage})
-    }    
+    }
+    if(this.props.isAdmin!==this.state.admin){
+      this.setState({admin:this.props.isAdmin})
+   }
+       
   }
 
   handleNewUser = (event) =>{
@@ -92,22 +98,27 @@ class UserList extends React.Component {
 
   append(){
     let e=[]
-    //console.log("************UserList append this.state.userId:",this.state.userId)
-    if(this.state.userId.length>1){
-      this.state.userId.map(x=>{
-        e.push(
-          <div key={x._id}>
-          <ListItem >
-            <ListItemText onClick = {this.handleClick} value={x._id} primary={x.first_name+" "+x.last_name}></ListItemText>
-            {(this.props.isEngage===true) ? this.addBubbles(x._id):0 }
-
-          </ListItem>
-          <Divider />
-          </div>
-      )  
-      })
-    }
-    return e
+    console.log("************UserList append this.state.userId:",this.state.userId)
+    console.log("************UserList append this.state.userId:",this.state.admin)
+    if (this.state.admin===true){
+      return "Not sure what to put here in admin/nonadmin mode!!!"
+    }else{
+      if(this.state.userId.length>1){
+        this.state.userId.map(x=>{
+          e.push(
+            <div key={x._id}>
+            <ListItem >
+              <ListItemText onClick = {this.handleClick} value={x._id} primary={x.first_name+" "+x.last_name}></ListItemText>
+              {(this.props.isEngage===true) ? this.addBubbles(x._id):0 }
+  
+            </ListItem>
+            <Divider />
+            </div>
+        )  
+        })
+      }
+      return e
+    } 
   }
 
   render() {

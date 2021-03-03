@@ -1,6 +1,23 @@
 import React from 'react'
 import {Typography,List,ListItem,Link} from '@material-ui/core'
 
+var week4_outline =
+    [
+        'Inverse Probability of Treatment Weighting (IPTW)',
+        'intuition for IPTW',
+        'more intuiton for IPTW',
+        'Marginal Structural Models',
+        'IPTW estimation',
+        'Assessing balance',
+        'Practice Quiz',
+        'Distribuiton of Weights',
+        'Remedies for large weights',
+        'doubly robust estimators',
+        'data example in R',
+        'Quiz 9 questions'
+    ]
+
+
 class Week4 extends React.Component{
   constructor(){
     super();

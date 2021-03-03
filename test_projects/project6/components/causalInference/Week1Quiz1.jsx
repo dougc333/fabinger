@@ -13,8 +13,7 @@ export default function Week1Quiz1() {
     const handleChange2 = (event) => {
         console.log("handleChange2 Week1Quiz1 value:",event.target.value)
         setValue2(event.target.value);
-        
-      };
+    };
     
 
     return (

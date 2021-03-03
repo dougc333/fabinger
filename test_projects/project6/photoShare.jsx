@@ -34,7 +34,8 @@ class PhotoShare extends React.Component {
       fetchData:'',
       prevProps:props,
       photoInfo:'',
-      engage:''
+      engage:'',
+      admin:'',
     }
   }
 
@@ -43,7 +44,10 @@ class PhotoShare extends React.Component {
     console.log("setEngage:",c)
     this.setState({engage:c})
   }
-
+  setAdmin=(ad)=>{
+    console.log("setAdmin:",ad)
+    this.setState({admin:ad})
+  }
   //passed to userphotos
   photosMount=(setPhotos)=>{
     //console.log("******photosMount:",setPhotos)
@@ -100,7 +104,7 @@ class PhotoShare extends React.Component {
       //console.log("ADD**** this.state.fetchData:",this.state.fetchData)
       return (
         <div>
-      <UserList userIdArr={this.state.fetchData} onNewUserID={this.set_CurrentUserID } isEngage={this.state.engage}/>
+      <UserList userIdArr={this.state.fetchData} onNewUserID={this.set_CurrentUserID } isEngage={this.state.engage} isAdmin={this.state.admin}/>
       </div>
       )
     }
@@ -124,7 +128,7 @@ class PhotoShare extends React.Component {
       <div>
       <Grid container spacing={8}>
         <Grid item xs={12}>
-          <TopBar usrid={this.state.current_userName} photoInfo={this.state.photoInfo} onCheckBox={this.setEngage}/>
+          <TopBar usrid={this.state.current_userName} photoInfo={this.state.photoInfo} onCheckBox={this.setEngage} onAdmin = {this.setAdmin}/>
         </Grid>
         <div className="main-topbar-buffer"/>
         <Grid item sm={3}>

@@ -15,6 +15,7 @@ class TopBar extends React.Component {
       name:'',
       old:'',
       checked:false,
+      admin:false,
     }
   }
 
@@ -31,19 +32,31 @@ class TopBar extends React.Component {
   }
 
   handleChange=(e)=>{
-    //console.log("topbar handleChange e.currentTarget.value",e.currentTarget.value)
-    //console.log("handleChange topbar checked before setState:",this.state.checked)
-    //console.log("topbar handleChange event.currentTarget.getAttribute('value')",event.currentTarget.getAttribute('value'))
+    console.log("topbar handleChange e.currentTarget.value:",e.currentTarget.value)
+    console.log("handleChange topbar checked before setState this.state.checked:",this.state.checked)
+    console.log("handleChange topbar checked before setState this.state.admin:",this.state.admin)
+    
+    console.log("topbar handleChange event.currentTarget.getAttribute('value')",e.currentTarget.getAttribute('value'))
     this.setState({checked:!this.state.checked},function(){
       this.props.onCheckBox(this.state.checked); 
-      //console.log("topBar handleChange checked:",this.state.checked)
+      console.log("topBar handleChange checked:",this.state.checked)
     })
   }
   
-
+  handleChangeAdmin=(e)=>{
+    console.log("topbar handleChange e.currentTarget.value:",e.currentTarget.value)
+    console.log("handleChange topbar checked before setState this.state.checked:",this.state.checked)
+    console.log("handleChange topbar checked before setState this.state.admin:",this.state.admin)
+    
+    console.log("topbar handleChange event.currentTarget.getAttribute('value')",e.currentTarget.getAttribute('value'))
+    this.setState({admin:!this.state.admin},function(){
+      this.props.onAdmin(this.state.admin); 
+      console.log("topBar handleChange this.state.admin:",this.state.admin)
+    })
+  }
   render() {
     return (
-      <AppBar className="cs142-topbar-appBar" position="absolute" >
+      <AppBar className="topbar-appBar" position="absolute" >
         <Toolbar>
           <Typography variant="h5" color="inherit" component='span' style={{ flex: 1 }}>
           Class Grading Site
@@ -53,6 +66,12 @@ class TopBar extends React.Component {
             onChange={this.handleChange}
             value="checkedA"
             inputProps={{ 'aria-label': 'Checkbox A' }}
+          />
+          Admin
+          <Checkbox
+            onChange={this.handleChangeAdmin}
+            value="Admin"
+            inputProps={{ 'aria-label': 'Checkbox B' }}
           />
           <Typography variant="h5" color="inherit" component='span' style={{ flex: 1 }}>
           User {this.state.name} :{this.props.usrid}
