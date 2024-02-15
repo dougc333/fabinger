@@ -1,2 +1,0 @@
-chi square mosaic box
-
